@@ -37,9 +37,9 @@ Build omni.ui interfaces declaratively using XML or JSON instead of imperative P
 ### 2. Create your Python extension
 
 ```python
-import omni.ext
 import os
-from .extension import DomExtension
+from typing import Any
+from .domextension import DomExtension
 
 class MyExtension(DomExtension):
     def on_startup(self, ext_id: str):
@@ -349,9 +349,9 @@ def on_color_changed(self, model, item):
 ### Python File (extension.py)
 
 ```python
-import omni.ext
 import os
-from .extension import DomExtension
+from typing import Any
+from .domextension import DomExtension
 
 class CounterExtension(DomExtension):
     def on_startup(self, ext_id: str):
@@ -566,8 +566,9 @@ class ElementAccessor:
 
 ## File Reference
 
-- **Main implementation**: [extension.py](./extension.py) (482 lines)
-- **Complex demo**: [complex_ui.xml](./complex_ui.xml) (146 lines)
+- **DOM implementation**: [domextension.py](./domextension.py) - Base DomExtension class
+- **Extension example**: [extension.py](./extension.py) - MyExtension demo implementation
+- **Complex demo**: [complex_ui.xml](./complex_ui.xml) - Advanced UI showcase
 - **Simple XML example**: [my_ui.xml](./my_ui.xml)
 - **Simple JSON example**: [my_ui.json](./my_ui.json)
 - **Screenshot**: [complex_ui.png](./complex_ui.png)
