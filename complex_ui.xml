@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window xmlns:x="http://schemas.ui/name" x:Name="self._window" title="Advanced UI Demo" width="800" height="600">
+    <ScrollingFrame>
+        <VStack spacing="10" height="0">
+            <!-- Header Section -->
+            <HStack height="40" style="{'HStack': {'background_color': 0xFF1E1E1E}}">
+                <Label text="Advanced Control Panel" font_size="18" />
+                <Spacer />
+                <Label x:Name="label" text="count: 0" width="100" />
+                <Button x:Name="btnAdd" text="Add" width="80" clicked_fn="on_click" />
+                <Button x:Name="btnReset" text="Reset" width="80" clicked_fn="on_reset" />
+            </HStack>
+            <Separator />
+            <!-- Input Fields Section -->
+            <CollapsableFrame title="User Input" collapsed="false">
+                <VStack spacing="5">
+                    <HStack>
+                        <Label text="Name:" width="100" />
+                        <StringField x:Name="txtName" text="" add_value_changed_fn="on_name_changed" />
+                    </HStack>
+                    <HStack>
+                        <Label text="Age:" width="100" />
+                        <IntField x:Name="intAge" min="0" max="120" add_value_changed_fn="on_age_changed" />
+                    </HStack>
+                    <HStack>
+                        <Label text="Height (m):" width="100" />
+                        <FloatField x:Name="floatHeight" min="0.0" max="3.0" add_value_changed_fn="on_height_changed" />
+                    </HStack>
+                    <HStack>
+                        <Label text="Quality:" width="100" />
+                        <FloatSlider x:Name="sliderQuality" min="0" max="100" width="200" add_value_changed_fn="on_quality_changed" />
+                    </HStack>
+                </VStack>
+            </CollapsableFrame>
+            <Separator />
+            <!-- Options Section -->
+            <CollapsableFrame title="Options" collapsed="false">
+                <VStack spacing="8">
+                    <HStack height="20">
+                        <CheckBox x:Name="chkEnabled" height="20" model.value="true" add_value_changed_fn="on_enabled_changed" />
+                        <Label text="Enable Features" height="20" />
+                        <Spacer />
+                        <CheckBox x:Name="chkAdvanced" height="20" add_value_changed_fn="on_advanced_changed" />
+                        <Label text="Advanced Mode" height="20" />
+                    </HStack>
+                    <HStack height="20">
+                        <Label text="Theme:" width="100" height="20" />
+                        <ComboBox x:Name="cmbTheme" height="20" add_item_changed_fn="on_theme">
+                            <ComboItem text="Dark" />
+                            <ComboItem text="Light" />
+                            <ComboItem text="Blue" />
+                            <ComboItem text="Green" />
+                        </ComboBox>
+                    </HStack>
+                    <VStack spacing="3">
+                        <Label text="Rendering Mode:" />
+                        <RadioCollection x:Name="radioRenderingMode" add_value_changed_fn="on_rendering_mode">
+                            <RadioButton text="Rasterization" />
+                            <RadioButton text="Ray Tracing" />
+                            <RadioButton text="Path Tracing" />
+                        </RadioCollection>
+                    </VStack>
+                </VStack>
+            </CollapsableFrame>
+            <Separator />
+            <!-- Color Picker Section -->
+            <CollapsableFrame title="Color Settings" collapsed="true">
+                <VStack spacing="5">
+                    <HStack>
+                        <Label text="Background:" width="100" />
+                        <ColorWidget x:Name="colorBg" width="200" height="30" add_item_changed_fn="on_bg_color_changed" />
+                    </HStack>
+                    <HStack>
+                        <Label text="Foreground:" width="100" />
+                        <ColorWidget x:Name="colorFg" width="200" height="30" add_item_changed_fn="on_fg_color_changed" />
+                    </HStack>
+                    <HStack>
+                        <Label text="Accent:" width="100" />
+                        <ColorWidget x:Name="colorAccent" width="200" height="30" add_item_changed_fn="on_accent_color_changed" />
+                    </HStack>
+                </VStack>
+            </CollapsableFrame>
+            <Separator />
+            <!-- Progress Section -->
+            <VStack spacing="5">
+                <Label text="Processing Status" font_size="14" />
+                <HStack>
+                    <Label text="Task 1:" width="100" />
+                    <ProgressBar x:Name="progress1" model.value="0.75" />
+                    <Label text="75%" width="50" />
+                </HStack>
+                <HStack>
+                    <Label text="Task 2:" width="100" />
+                    <ProgressBar x:Name="progress2" model.value="0.33" />
+                    <Label text="33%" width="50" />
+                </HStack>
+                <HStack>
+                    <Label text="Task 3:" width="100" />
+                    <ProgressBar x:Name="progress3" model.value="1.0" />
+                    <Label text="100%" width="50" />
+                </HStack>
+            </VStack>
+            <Separator />
+            <!-- Multi-column Layout -->
+            <HStack spacing="10" height="150">
+                <VStack width="0">
+                    <Label text="Column 1" font_size="14" />
+                    <Rectangle style="{'Rectangle': {'background_color': 0xFF3344FF}}" height="100" />
+                    <Button text="Action 1" />
+                </VStack>
+                <VStack width="0">
+                    <Label text="Column 2" font_size="14" />
+                    <Rectangle style="{'Rectangle': {'background_color': 0xFF44FF33}}" height="100" />
+                    <Button text="Action 2" />
+                </VStack>
+                <VStack width="0">
+                    <Label text="Column 3" font_size="14" />
+                    <Rectangle style="{'Rectangle': {'background_color': 0xFFFF3344}}" height="100" />
+                    <Button text="Action 3" />
+                </VStack>
+            </HStack>
+            <Separator />
+            <!-- Text Display Area -->
+            <VStack spacing="5">
+                <Label text="Output Console" font_size="14" />
+                <ScrollingFrame height="100" style="{'ScrollingFrame': {'background_color': 0xFF0D0D0D}}">
+                    <VStack>
+                        <Label text="[INFO] System initialized..." style="{'Label': {'color': 0xFF00FF00}}" />
+                        <Label text="[WARN] Low memory detected" style="{'Label': {'color': 0xFFFFAA00}}" />
+                        <Label text="[ERROR] Connection timeout" style="{'Label': {'color': 0xFFFF0000}}" />
+                        <Label text="[INFO] Retrying connection..." style="{'Label': {'color': 0xFF00FF00}}" />
+                        <Label text="[INFO] Connected successfully" style="{'Label': {'color': 0xFF00FF00}}" />
+                    </VStack>
+                </ScrollingFrame>
+            </VStack>
+            <Spacer height="10" />
+            <!-- Action Buttons Footer -->
+            <HStack spacing="5" height="40">
+                <Spacer />
+                <Button text="Styled" width="100" style="{'Button': {'background_color': 0xFF007ACC, 'color': 0xFFFFFFFF}, 'Button:hovered': {'background_color': 0xFF009AFF}, 'Button:pressed': {'background_color': 0xFF005A9A}}" />
+                <Button text="Unstyled" width="100" />
+            </HStack>
+        </VStack>
+    </ScrollingFrame>
+</Window>

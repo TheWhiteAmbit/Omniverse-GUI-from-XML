@@ -1,0 +1,44 @@
+{
+  "type": "Window",
+  "name": "self._window",
+  "attributes": {
+    "title": "My Python JSON-UI Extension",
+    "width": 300,
+    "height": 300
+  },
+  "children": [
+    {
+      "type": "VStack",
+      "children": [
+        {
+          "type": "Label",
+          "name": "label",
+          "attributes": {
+            "text": ""
+          }
+        },
+        {
+          "type": "HStack",
+          "children": [
+            {
+              "type": "Button",
+              "name": "addButton",
+              "attributes": {
+                "text": "Adds",
+                "clicked_fn": "on_click"
+              }
+            },
+            {
+              "type": "Button",
+              "name": "resetButton",
+              "attributes": {
+                "text": "Reset",
+                "clicked_fn": "on_reset"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

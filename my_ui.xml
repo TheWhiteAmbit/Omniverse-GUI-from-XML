@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window xmlns:x="http://schemas.ui/name" x:Name="self._window" title="My Python XML-UI Extension" width="300" height="300">
+    <VStack>
+        <Label x:Name="label" text="" />
+        <HStack>
+            <Button x:Name="addButton" text="Adds" clicked_fn="on_click" />
+            <Button x:Name="resetButton" text="Reset" clicked_fn="on_reset" />
+        </HStack>
+    </VStack>
+</Window>
